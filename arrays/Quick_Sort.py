@@ -3,12 +3,14 @@ def partition(a,l,h):
     i=l-1
     j=h+1
     while i < j:
-        do{
+        while True:
             i+=1
-        }while a[i]<= pivot
-        do{
-            j+=1
-        }while a[j]>pivot
+            if i==h or a[i]>= pivot:
+                break
+        while True:
+            j-=1
+            if j==l or a[j]<pivot:
+                break
         if(i<j):
             temp = a[i]
             a[i] = a[j]
@@ -23,5 +25,5 @@ def quickSort(a,l,h):
         quickSort(a,l,j-1)
         quickSort(a,j+1,h)
 a = [3,6,1,7,8,2,3,4]
-quicksort(a)
+quickSort(a,0,7)
 print(a)
