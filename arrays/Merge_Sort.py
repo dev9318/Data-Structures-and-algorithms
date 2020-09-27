@@ -3,7 +3,6 @@ def mergeSort(arr):
         return arr
     leng = len(arr)
     left = arr[:int(leng/2)]
-    print(left)
     right = arr[int(leng/2):]
     mergeSort(left)
     mergeSort(right)
