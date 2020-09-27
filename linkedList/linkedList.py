@@ -18,19 +18,38 @@ class linkedList:
         while(temp):
             print(temp.data)
             temp = temp.next
+
+    def length(self):
+        i = 0
+        temp = self.head
+        while(temp):
+            temp = temp.next
+            i+=1
+        return i           
+    
+    def search(self,x):
+        current = self.head
+        while not current == None:
+            if(x == current.data):
+                return True
+            current = current.next
+        return False
+
     def delete(self,position):
         i=0
+        if position == 0:
+            self.head = None
         current = self.head
-        while i<position:
+        while i<position-1:
             if current.next == None:
                 return 
             current = current.next
             i+=1
         if current.next == None:
-            current = None
             return
-        new_next = current.next
-        current = new_next
+        new_next = current.next.next
+        current.next = new_next
+
 
 if __name__ == "__main__":
     llist = linkedList() 
@@ -40,8 +59,6 @@ if __name__ == "__main__":
     llist.push(2) 
     llist.push(8) 
   
-    print("Created Linked List: ")
-    llist.printL() 
-    llist.delete(4) 
-    print ("\nLinked List after Deletion at position 4: ")
-    llist.printL()
+    print(llist.search(4))
+    print(llist.search(2))
+    
