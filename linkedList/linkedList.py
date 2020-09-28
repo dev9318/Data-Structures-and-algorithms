@@ -35,6 +35,18 @@ class linkedList:
             current = current.next
         return False
 
+    def nthnode(self,n,llist):
+        llist.nthelement(self.head,n,llist)
+
+    def nthelement(self,curr,n,llist):
+        if(curr):    
+            if(n==0):
+                print(curr.data)
+            else:
+                llist.nthelement(curr.next,n-1,llist)
+        else:
+            print("doesn't exist")
+
     def delete(self,position):
         i=0
         if position == 0:
@@ -59,6 +71,5 @@ if __name__ == "__main__":
     llist.push(2) 
     llist.push(8) 
   
-    print(llist.search(4))
-    print(llist.search(2))
+    print(llist.nthnode(7,llist))
     
