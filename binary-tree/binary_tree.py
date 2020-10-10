@@ -29,18 +29,18 @@ class Node:
     def findValue(self,value):
         if self.data > value:
             if self.left == None:
-                print("value not found")
+                print(str(value)+" not found")
                 return
             self.left.findValue(value)
             return
         elif self.data < value:
             if self.right == None:
-                print("value not found")
+                print(str(value)+" not found")
                 return
             self.right.findValue(value)
             return
         else:
-            print("value found")
+            print(str(value)+" found")
             return
 
 if __name__ == "__main__":
