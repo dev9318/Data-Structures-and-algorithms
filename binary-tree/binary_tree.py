@@ -26,6 +26,22 @@ class Node:
         print(self.data),
         if self.right:
             self.right.printTree()
+    def findValue(self,value):
+        if self.data > value:
+            if self.left == None:
+                print("value not found")
+                return
+            self.left.findValue(value)
+            return
+        elif self.data < value:
+            if self.right == None:
+                print("value not found")
+                return
+            self.right.findValue(value)
+            return
+        else:
+            print("value found")
+            return
 
 if __name__ == "__main__":
 
@@ -34,4 +50,6 @@ if __name__ == "__main__":
     tree.insert(1)
     tree.insert(10)
     tree.insert(4)
-    tree.printTree()
+    tree.findValue(4)
+    tree.findValue(1)
+    tree.findValue(6)
