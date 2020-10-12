@@ -12,26 +12,21 @@ def Ugly(n):
     mul_5 = 5
     
     for i in range(1,n):
-        if (mul_2 < mul_3):
-            if(mul_2 < mul_5):
-                uglyn[i] = mul_2
-                i2 += 1
-                mul_2 = uglyn[i2]*2
-            else:
-                uglyn[i] = mul_5
-                i5 += 1
-                mul_5 = uglyn[i5]*5
-        else:
-            if(mul_3 < mul_5):
-                uglyn[i] = mul_3
-                i3 += 1
-                mul_3 = uglyn[i3]*3
-            else:
-                uglyn[i] = mul_5
-                i5 += 1
-                mul_5 = uglyn[i5]*5
+        uglyn[i]=min(mul_2,mul_3,mul_5)
+        
+        if (mul_2 == uglyn[i]):
+            i2 += 1
+            mul_2 = uglyn[i2]*2
+        if(mul_3 == uglyn[i]):
+            uglyn[i] = mul_3
+            i3 += 1
+            mul_3 = uglyn[i3]*3
+        if(mul_5 == uglyn[i]):
+            uglyn[i] = mul_5
+            i5 += 1
+            mul_5 = uglyn[i5]*5
 
-    print(uglyn[n])
+    print(uglyn[n-1])
 
 
 if __name__ == "__main__":
