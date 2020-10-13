@@ -17,6 +17,20 @@ def palindrome_count(st,i,j):
         ans = min(count,ans)
     return ans
 
+# O(n^2) approach
+def palin_cnt(st):
+    n = len(st)
+    cn = [0] * (n+1)
+    palin = [[False for i in range(n+1)] for i in range(n+1)]
+    
+    for i in range(n):
+        palin = True
+    
+    for l in range(2,n+1):
+        for i in range(n-l+1):
+            j = i+l-1
+            
+
 if __name__ == "__main__":
     string = "ababbbabbababa"
     print(palindrome_count(string,0,len(string)-1))
