@@ -24,12 +24,12 @@ def palin_cnt(st):
     palin = [[False for i in range(n+1)] for i in range(n+1)]
     
     for i in range(n):
-        palin = True
+        palin[i][i] = True
     
     for l in range(2,n+1):
         for i in range(n-l+1):
             j = i+l-1
-            if (L == 2): 
+            if (l == 2): 
                 palin[i][j] = (st[i] == st[j]); 
             else: 
                 palin[i][j] = ((st[i] == st[j]) and palin[i + 1][j - 1])
@@ -37,7 +37,7 @@ def palin_cnt(st):
         if (palin[0][i] == True): 
             cn[i] = 0 
         else: 
-            cn[i] = sys.maxsize 
+            cn[i] = 1000000000
             for j in range(i): 
                 if(palin[j + 1][i] == True and 1 + cn[j] < cn[i]): 
                     cn[i] = 1 + cn[j]
