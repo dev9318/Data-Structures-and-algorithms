@@ -12,3 +12,7 @@ def lis(arr):
    
     maxi =  max(lis)
     return maxi
+
+
+if __name__ == "__main__":
+    print(lis([10, 22, 9, 33, 21, 50, 41, 60]))
