@@ -29,8 +29,20 @@ def palin_cnt(st):
     for l in range(2,n+1):
         for i in range(n-l+1):
             j = i+l-1
-            
+            if (L == 2): 
+                palin[i][j] = (st[i] == st[j]); 
+            else: 
+                palin[i][j] = ((st[i] == st[j]) and palin[i + 1][j - 1])
+    for i in range(n): 
+        if (palin[0][i] == True): 
+            cn[i] = 0 
+        else: 
+            cn[i] = sys.maxsize 
+            for j in range(i): 
+                if(palin[j + 1][i] == True and 1 + cn[j] < cn[i]): 
+                    cn[i] = 1 + cn[j]
+    print(cn[n-1])
 
 if __name__ == "__main__":
     string = "ababbbabbababa"
-    print(palindrome_count(string,0,len(string)-1))
+    palin_cnt(string)
