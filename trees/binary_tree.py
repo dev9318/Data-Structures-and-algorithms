@@ -42,6 +42,14 @@ class Node:
         else:
             print(str(value)+" found")
             return
+    
+
+    def postOrder(self):
+        if not(self.left == None):
+            self.left.postOrder()
+        if not(self.right == None):
+            self.right.postOrder()
+        print(self.data)
 
 if __name__ == "__main__":
 
@@ -50,6 +58,4 @@ if __name__ == "__main__":
     tree.insert(1)
     tree.insert(10)
     tree.insert(4)
-    tree.findValue(4)
-    tree.findValue(1)
-    tree.findValue(6)
+    tree.postOrder()
