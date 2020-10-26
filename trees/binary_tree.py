@@ -51,6 +51,21 @@ class Node:
             self.right.postOrder()
         print(self.data)
 
+    def preOrder(self):
+        print(self.data)
+        if not(self.left == None):
+            self.left.postOrder()
+        if not(self.right == None):
+            self.right.postOrder()
+    
+    def inOrder(self):
+        if not(self.left == None):
+            self.left.postOrder()
+        print(self.data)
+        if not(self.right == None):
+            self.right.postOrder()
+        
+
 if __name__ == "__main__":
 
     tree = Node(2)
