@@ -62,6 +62,26 @@ class linkedList:
         new_next = current.next.next
         current.next = new_next
 
+    # Floyd’s Cycle-Finding Algorithm 
+
+    def findCycle(self):
+        slow = self.head
+        fast = self.head
+
+        while(slow and fast and fast.next):
+            slow = slow.next
+            fast = fast.next.next
+            if(fast == slow):
+                return fast
+        return None
+            
+    def findCyclePosition(self,p):
+        hd = self.head
+        while(not (hd == p)):
+            hd = hd.next
+            p = p.next
+        return hd
+
 
 if __name__ == "__main__":
     llist = linkedList() 
@@ -70,6 +90,14 @@ if __name__ == "__main__":
     llist.push(3) 
     llist.push(2) 
     llist.push(8) 
-  
+    llist.head.next.next.next.next.next = llist.head.next
+
+    position = llist.findCycle()
+
+    if(position == None):
+        print("not cycle")
+    else:
+        print("loop at "+ str(llist.findCyclePosition(position).data))
+
     print(llist.nthnode(7,llist))
     
