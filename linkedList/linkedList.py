@@ -95,9 +95,8 @@ if __name__ == "__main__":
     position = llist.findCycle()
 
     if(position == None):
-        print("not cycle")
+        print("no cycle")
     else:
         print("loop at "+ str(llist.findCyclePosition(position).data))
 
-    print(llist.nthnode(7,llist))
     
